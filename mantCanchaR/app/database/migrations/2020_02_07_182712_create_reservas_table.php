@@ -12,12 +12,15 @@ class CreateReservasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('Reservas', function(Blueprint $table)
+		Schema::create('Reservas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->foreign('cancha_id')->references('id')->on('Canchas');
-			$table->foreign('user_id')->references('id')->on('Users');
-			
+			$table->integer('cancha_id')->unsigned();
+			$table->foreign('cancha_id')->references('id')->on('Canchas')->onDelete('cascade');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('Users')->onDelete('cascade');
+			$table->integer('direccion_id')->unsigned();
+			$table->foreign('direccion_id')->references('id')->on('Direccions')->onDelete('cascade');
 			$table->dateTime('hora_reserva_inicio');
 			$table->dateTime('hora_reserva_termino');
 			$table->timestamps();
@@ -32,10 +35,7 @@ class CreateReservasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('Reservas', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::dropIfExists('Reservas');
 	}
 
 }
