@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Database\Seeder;
+
 class DatabaseSeeder extends Seeder {
 
 	/**
@@ -13,5 +15,12 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('UserTableSeeder');
 	}
+
+	// class UsersTableSeeder extends Seeder
+	// {
+	// 	DB::table('Users')->delete();
+
+
+	// }
 
 }
