@@ -11,8 +11,18 @@
 |
 */
 
+
 Route::get('/', function()
 {
-	// return View::make('hello');
-	return "hello world";
+	return View::make('hello');
+	// return "hello world";
 });
+
+//ROUTING MANTENEDOR TIPO USUARIO
+Route::get('/MantTpUsrs', array('as'=>'mantTpUs', 'uses'=>'TipoUserController@index'));
+Route::get('/formAddTpUs', array('as'=>'formuAgregarTpUs', 'uses'=>'TipoUserController@crearTpUser'));
+Route::post('/agregarTpUs', array('as'=>'agregarTpUs', 'uses'=>'TipoUserController@agregarTpUs'));
+Route::get('/formEditTpUs/{id}', array('as'=>'formuEditTpUs', 'uses'=>'TipoUserController@formEdit'));
+Route::post('/editarTpUs', array('as'=>'editarTpUs', 'uses'=>'TipoUserController@editTpUs'));
+Route::get('/elimTpUs/{id}', array('as'=>'elimTpUs', 'uses'=>'TipoUserController@elimTpUs'));
+
