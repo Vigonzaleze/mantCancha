@@ -26,3 +26,11 @@ Route::get('/formEditTpUs/{id}', array('as'=>'formuEditTpUs', 'uses'=>'TipoUserC
 Route::post('/editarTpUs', array('as'=>'editarTpUs', 'uses'=>'TipoUserController@editTpUs'));
 Route::get('/elimTpUs/{id}', array('as'=>'elimTpUs', 'uses'=>'TipoUserController@elimTpUs'));
 
+//ROUTING MANTENEDOR DIRECCION
+Route::get('/MantDirs', array('as'=>'mantDirs', 'uses'=>'DireccionController@index'));
+Route::get('/formAddDir', array('as'=>'formuAgregarDirs', 'uses'=>'DireccionController@formAgregDir'));
+Route::post('/agregarDir', array('as'=>'agregarDir', 'uses'=>'DireccionController@agregarDir'));
+Route::get('/formEditDir/{id}', array('as'=>'formuEditDirs', 'uses'=>'DireccionController@formEditDir'));
+Route::post('/editarDir', array('as'=>'editarDir', 'uses'=>'DireccionController@editDir'));
+Route::get('/elimDir/{id}', array('as'=>'elimDir', 'uses'=>'DireccionController@elimDir'));
+

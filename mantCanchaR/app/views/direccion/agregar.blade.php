@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Agregar Tipo de Usuario</title>
+    <title>Agregar Direccion</title>
 </head>
 <body>
-    <h1>Agregar Tipo de Usuarios</h1>
+    <h1>Agregar Direccion</h1>
     <hr>
     <button><a href="{{URL::route('mantDirs')}}">Volver</a></button>
     <hr>
-    <form action="{{URL::route('agregarTpUs')}}" method="POST">
+    <form action="agregarDir" method="POST">
         <table border="1px">
             <tr>
-                <td>Tipo de Usuario</td>
+                <td>Calle:</td>
                 <td>
-                    <input type="text" name="txtTipo" id="txtTipo" required>
+                    <input type="text" name="txtCalle" id="txtCalle" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Numeracion:</td>
+                <td>
+                    <input type="number" name="nmbNumeracion" id="nmbNumeracion" required>
                 </td>
             </tr>
             <tr>
