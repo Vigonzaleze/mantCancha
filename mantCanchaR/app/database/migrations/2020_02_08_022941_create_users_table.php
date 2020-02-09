@@ -17,10 +17,12 @@ class CreateUsersTable extends Migration {
 			$table->increments('id');
 			$table->string('username');
 			$table->string('password');
+			$table->string('email');
 			$table->integer('tipoUser_id')->unsigned();
 			$table->foreign('tipoUser_id')->references('id')->on('TipoUsers')->delete('cascade');
 			$table->timestamps();
 			$table->softDeletes();
+			$table->rememberToken();
 		});
 	}
 

@@ -62,4 +62,27 @@ class CanchaController extends \BaseController {
 
 		return Redirect::back();
 	}
+
+	public function pagReserva()
+	{
+		$lCchas=DB::table('Canchas')
+			->where('estado', 0)
+			->where('deleted_at', null)
+			->get();
+
+		return View::make('cancha.reserva')->with('lCchas', $lCchas);
+	}
+
+	public function reservar($id)
+	{
+		$dt= new DateTime();
+
+		$data=array('cancha_id'=>$id, 'user_id'=>2, 'created_at'=>$dt);
+	
+		DB::table('Canchas')->where('id', $id)->update(array('estado'=>1));
+
+		DB::table('Reservas')->insert($data);
+	
+		return Redirect::route('reserva');
+	}
 }

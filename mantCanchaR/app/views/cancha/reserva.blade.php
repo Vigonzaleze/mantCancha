@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edicion Cancha</title>
+    <title>Mantenedor Canchas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
@@ -47,67 +47,41 @@
 
     <section>
         <div align="center">
-            <div align="center" style="padding-top: 5%;height:100vh; background-color: #95A3B3; border-radius: 0.5%">
-                <h1>Editar Cancha</h1>
-                <hr>
-                <a href="{{URL::route('mantCchas')}}" class="btn btn-primary btn-dark" role="button">Volver</a>
-                <hr>
-                <form action="{{URL::route('editCcha')}}" method="POST">
-                    <input type="hidden" value="{{$cchaEnc->id}}" name="id">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="">Nombre</label>
-                            <input type="text" name="txtNombre" id="txtNombre" required class="form-control" value="{{$cchaEnc->nombre}}">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="">Precio</label>
-                            <input type="number" name="nmbPrecio" id="nmbPrecio" required class="form-control" value="{{$cchaEnc->precio}}">
-                        </div>
-                    </div>
-                    <input type="submit" value="Editar" class="btn btn-primary btn-dark">
-                  </form>
+            <div align="center" style="padding-top: 5%;height:100vh; background-color: #95A3B3; border-radius: 0.5%" >
+                <h1>Reserva una cancha</h1>
+                <table class="table table-striped table-dark table-bordered">
+                    <thead>
+                        <th>Id</th>
+                        <th>Nombre Cancha</th>
+                        <th>Reservada</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        @foreach ($lCchas as $i)
+                            <tr>
+                                <td>{{$i->id}}</td>
+                                <td>{{$i->nombre}}</td>
+                                <td>
+                                    @if($i->estado === 0) Disponible 
+                                    @elseif($i->estado === 1) Reservada 
+                                    @endif
+                                </td>
+                                <td>{{"$".$i->precio}}</td>
+                                <td>
+                                    <a href="{{URL::route('reservar', array($i->id))}}" class="btn btn-primary btn-warning">Reservar</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
-
-
-    {{-- <h1>Editar Cancha</h1>
-    <hr>
-    <button><a href="{{URL::route('mantCchas')}}">Volver</a></button>
-    <hr>
-    <form action="{{URL::route('editCcha')}}" method="POST">
-        <input type="hidden" value="{{$cchaEnc->id}}" name="id">
-        <table border="1px">
-            <tr>
-                <td>Nombre:</td>
-                <td>
-                    <input type="text" name="txtNombre" id="txtNombre" value="{{$cchaEnc->nombre}}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Precio:</td>
-                <td>
-                    <input type="number" name="nmbPrecio" id="nmbPrecio" value="{{$cchaEnc->precio}}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Direccion:</td>
-                <td>
-                    <select name="selDir" id="selDir" required>
-                        <option disabled="disabled" selected="true" value="">
-                            Selecciona una opcion
-                        </option>
-                        @foreach ($lDirs as $i)
-                            <option value="{{$i->id}}">{{$i->calle." #".$i->numeracion}}</option>
-                        @endforeach
-                    </select>
-                </td>
-            </tr>
-                <td>
-                    <input type="submit" value="Editar">
-                </td>
-            </tr>
-        </table> --}}
-    </form>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

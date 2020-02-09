@@ -14,7 +14,8 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('inicio');
+	// return View::make('login');
 	// return "hello world";
 });
 
@@ -42,3 +43,17 @@ Route::post('/addCcha', array('as'=>'addCcha', 'uses'=>'CanchaController@agregar
 Route::get('/formEditCcha/{id}', array('as'=>'formEditCcha', 'uses'=>'CanchaController@formEditCcha'));
 Route::post('/editCcha', array('as'=>'editCcha', 'uses'=>'CanchaController@editCcha'));
 Route::get('/elimCcha/{id}', array('as'=>'elimCcha', 'uses'=>'CanchaController@elimCcha'));
+Route::get('/reserva', array('as'=>'reserva', 'uses'=>'CanchaController@pagReserva'));
+Route::get('/reservar/{id}', array('as'=>'reservar', 'uses'=>'CanchaController@reservar'));
+
+//ROUTING LOGIN
+// Route::post('/login', function(){
+// 	$fData=Input::all();
+// 	$data=array('username'=>$fData['txtUsname'], 'password'=>$fData['txtPass']);
+
+// 	if(Auth::attempt($data)){
+// 		return "yes";
+// 	}else{
+// 		return "no";
+// 	}
+// });
