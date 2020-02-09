@@ -25,4 +25,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $fillable = array('created_at', 'updated_at', 'deleted_at');
 
+	public function tipoUser()
+	{
+		return $this->hasOne('TipoUser');
+	}
+
 }

@@ -18,6 +18,8 @@ class CreateCanchasTable extends Migration {
 			$table->string('nombre');
 			$table->integer('estado'); // 0 = disponible, 1 = reservada
 			$table->integer('precio');
+			$table->integer('direccion_id')->unsigned();
+			$table->foreign('direccion_id')->references('id')->on('Direccions');
 			$table->timestamps();
 			$table->softDeletes();
 		});

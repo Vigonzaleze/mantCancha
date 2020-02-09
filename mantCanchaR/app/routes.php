@@ -34,3 +34,11 @@ Route::get('/formEditDir/{id}', array('as'=>'formuEditDirs', 'uses'=>'DireccionC
 Route::post('/editarDir', array('as'=>'editarDir', 'uses'=>'DireccionController@editDir'));
 Route::get('/elimDir/{id}', array('as'=>'elimDir', 'uses'=>'DireccionController@elimDir'));
 
+
+//ROUTING MANTENEDOR CANCHA
+Route::get('/mantCchas', array('as'=>'mantCchas', 'uses'=>'CanchaController@index'));
+Route::get('/formAddCcha', array('as'=>'formAddCcha', 'uses'=>'CanchaController@formAddCcha'));
+Route::post('/addCcha', array('as'=>'addCcha', 'uses'=>'CanchaController@agregarCcha'));
+Route::get('/formEditCcha/{id}', array('as'=>'formEditCcha', 'uses'=>'CanchaController@formEditCcha'));
+Route::post('/editCcha', array('as'=>'editCcha', 'uses'=>'CanchaController@editCcha'));
+Route::get('/elimCcha/{id}', array('as'=>'elimCcha', 'uses'=>'CanchaController@elimCcha'));
