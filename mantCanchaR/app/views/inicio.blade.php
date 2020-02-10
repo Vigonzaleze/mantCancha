@@ -34,7 +34,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Reservar Cancha</span></a>
+                    <a class="nav-link" href="{{URL::route('reserva')}}">Reservar Cancha</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
